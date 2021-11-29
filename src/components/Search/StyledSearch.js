@@ -3,6 +3,7 @@ export const StyledSearch = styled.form`
   margin: 2rem auto;
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
   > div {
     position: relative;
@@ -53,6 +54,16 @@ export const StyledSearch = styled.form`
     /* background: #333; */
 
     animation: rotate 0.9s linear infinite forwards;
+    &.close {
+      animation-play-state: paused;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: red;
+        fill: white;
+      }
+    }
   }
   @keyframes rotate {
     from {

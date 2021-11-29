@@ -1,8 +1,8 @@
 import React from "react";
 import { CardGame } from "./CardStyled";
+import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { detailsAction } from "../../redux/slices/details";
-import { motion } from "framer-motion";
 
 function PopularGame({ game }) {
   const dispatch = useDispatch();

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
 import { GamesSearchUrl } from "../BaseURL";
-
+import { useSelector } from "react-redux";
 function useSearch() {
+  const term = useSelector((state) => state.search.term);
   const [number, setNumber] = useState(4);
   const [input, setInput] = useState("");
   const [inputSearch, setInputSearch] = useState("");
@@ -25,6 +26,10 @@ function useSearch() {
       enabled: !!inputSearch,
     },
   );
+  if (term) {
+    setInput(term);
+  }
+
   useEffect(() => {
     let load;
     let time;
@@ -32,11 +37,11 @@ function useSearch() {
       setLoading(true);
       load = setTimeout(() => {
         setLoading(false);
-      }, 1200);
+      }, 1300);
       time = setTimeout(() => {
         setNumber(4);
         setInputSearch(input);
-      }, 1300);
+      }, 1200);
     } else {
       setLoading(false);
     }

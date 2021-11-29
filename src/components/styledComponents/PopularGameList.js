@@ -6,15 +6,18 @@ function PopularGameList({ data, name }) {
   return (
     <section className="container">
       <h1>{name}</h1>
-      <ListStyled
-        className="container"
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-      >
-        {data.map((game) => (
-          <PopularGame key={game.id} game={game} />
-        ))}
-      </ListStyled>
+      {!data && <h1>No game found with this search !</h1>}
+      {data && (
+        <ListStyled
+          className="container"
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+        >
+          {data.map((game) => (
+            <PopularGame key={game.id} game={game} />
+          ))}
+        </ListStyled>
+      )}
     </section>
   );
 }

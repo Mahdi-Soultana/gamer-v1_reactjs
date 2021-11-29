@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { BsFillQuestionOctagonFill } from "react-icons/bs";
+import { searchAction } from "../../../redux/slices/search";
+import { detailsAction } from "../../../redux/slices/details";
+import { useDispatch } from "react-redux";
 export const Tags = styled.section`
   padding: 1rem;
   h2 {
@@ -37,6 +40,7 @@ export const Tags = styled.section`
 `;
 
 function TagsDetails({ tags }) {
+  const dispatch = useDispatch();
   return (
     <Tags>
       <h2>
@@ -47,7 +51,15 @@ function TagsDetails({ tags }) {
       </h2>
       <ul>
         {tags.map((tag) => (
-          <li key={tag.id} title={tag.name}>
+          <li
+            key={tag.id}
+            title={tag.name}
+            onClick={() => {
+              dispatch(searchAction.setSearch(tag.name));
+              dispatch(detailsAction.setDetailsId(""));
+              dispatch(detailsAction.setGameDetails({}));
+            }}
+          >
             {tag.name}
           </li>
         ))}
