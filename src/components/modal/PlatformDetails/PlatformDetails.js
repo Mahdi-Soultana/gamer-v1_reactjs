@@ -32,11 +32,10 @@ function dataTransform(slug) {
 }
 
 function PlatformDetails({ data }) {
-  console.log(data);
   return (
     <div className="platforme">
       <PlatformIcons>
-        {data.map((item) => (
+        {data?.map((item) => (
           <li key={item.platform.id} title={item.platform.name}>
             {dataTransform(item.platform.slug)}
           </li>

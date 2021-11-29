@@ -62,7 +62,7 @@ export const SearchMenuStyled = styled.ul`
 
 function SearchMenu({ data }) {
   const dispatch = useDispatch();
-  console.log(data, "frm muen");
+
   return (
     <SearchMenuStyled>
       {!data.length && <h3> no game match your search !</h3>}
@@ -70,8 +70,9 @@ function SearchMenu({ data }) {
         const { background_image, name, id, rating, parent_platforms } = game;
         return (
           <li
+            key={id}
             title={name}
-            onClick={() => dispatch(detailsAction.setDetailsId(game.id))}
+            onClick={() => dispatch(detailsAction.setDetailsId(id))}
           >
             <img src={background_image} alt={name} />
             <div>

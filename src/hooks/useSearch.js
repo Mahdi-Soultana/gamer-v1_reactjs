@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useMutation, useQuery } from "react-query";
+import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import { GamesSearchUrl } from "../BaseURL";
 import { useSelector } from "react-redux";
 function useSearch() {
@@ -26,14 +26,16 @@ function useSearch() {
       enabled: !!inputSearch,
     },
   );
-  if (term) {
-    setInput(term);
-  }
+  useEffect(() => {
+    if (term) {
+      setInput(term);
+    }
+  }, [term]);
 
   useEffect(() => {
     let load;
     let time;
-    if (input.length >= 3) {
+    if (input.length >= 2) {
       setLoading(true);
       load = setTimeout(() => {
         setLoading(false);

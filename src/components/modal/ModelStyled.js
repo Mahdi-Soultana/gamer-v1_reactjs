@@ -13,7 +13,7 @@ function ModelStyled({ data: dataGame }) {
     rating,
     background_image,
     released,
-    website,
+    // website,
     parent_platforms,
     tags,
   } = dataGame;
@@ -62,9 +62,9 @@ export function ConvertRatingToStars(rating) {
   let stars = [];
   for (let i = 0; i < 5; i++) {
     if (i <= ratingRound) {
-      stars.push(<AiFillStar />);
+      stars.push(<AiFillStar key={i} />);
     } else {
-      stars.push(<AiOutlineStar />);
+      stars.push(<AiOutlineStar key={i} />);
     }
   }
   return stars;
