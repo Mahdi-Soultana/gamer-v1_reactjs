@@ -26,6 +26,7 @@ function useSearch() {
       enabled: !!inputSearch,
     },
   );
+  console.log(data);
   useEffect(() => {
     if (term) {
       setInput(term);
@@ -60,6 +61,7 @@ function useSearch() {
     isLoading,
     isError,
     setNumber,
+    number,
   };
 }
 

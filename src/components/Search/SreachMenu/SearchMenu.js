@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { detailsAction } from "../../../redux/slices/details";
 import PlatformDetails from "../../modal/PlatformDetails/PlatformDetails";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 export const SearchMenuStyled = styled.ul`
   position: absolute;
   left: -1rem;
@@ -28,11 +29,13 @@ export const SearchMenuStyled = styled.ul`
     align-items: start;
     text-align: left;
     position: relative;
-    background: #f8963c;
-    color: white;
+    color: black;
+    font-weight: 600;
+    box-shadow: 0 0px 5px #333;
+    background: #fff;
     &:hover {
-      color: #333;
-      background: #fcc;
+      color: black;
+      background: #eee;
     }
     div {
       display: grid;
@@ -69,7 +72,9 @@ function SearchMenu({ data }) {
       {data.map((game) => {
         const { background_image, name, id, rating, parent_platforms } = game;
         return (
-          <li
+          <motion.li
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 2, opacity: 0 }}
             key={id}
             title={name}
             onClick={() => dispatch(detailsAction.setDetailsId(id))}
@@ -80,7 +85,7 @@ function SearchMenu({ data }) {
               <span className="rating">{rating}</span>
               <PlatformDetails data={parent_platforms} />
             </div>
-          </li>
+          </motion.li>
         );
       })}
     </SearchMenuStyled>

@@ -17,14 +17,10 @@ const nextYear = new Date().getFullYear() + 2;
 
 export const PopularGamesUrl = `${BaseUrl}&dates=${formatDate(
   `${lastYear}-01-01`,
-)},${formatDate()},&page_size=10`;
-export const newGamesUrl = `${BaseUrl}&dates=${formatDate(
-  `${nextYear}-01-01`,
-)},${formatDate()},&ordering=added&page_size=10`;
+)},${formatDate()},&page_size=12`;
+export const newGamesUrl = `${BaseUrl}&search=the&ordering=added&page_size=12`;
 
-export const FeaturedGamesUrl = `${BaseUrl}&dates=${formatDate()},${formatDate(
-  `${nextYear}-09-01`,
-)},&ordering=-created&page_size=10`;
+export const FeaturedGamesUrl = `${BaseUrl}&search=run&ordering=-rating&page_size=12`;
 
 BaseUrl = "https://api.rawg.io/api/games";
 

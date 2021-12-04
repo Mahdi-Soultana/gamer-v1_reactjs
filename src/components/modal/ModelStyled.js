@@ -5,6 +5,7 @@ import PlatformDetails from "./PlatformDetails/PlatformDetails";
 import TagsDetails from "./TagsDetails/TagsDetails";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { GrValidate } from "react-icons/gr";
+import Related from "./related/Related";
 function ModelStyled({ data: dataGame }) {
   const {
     id,
@@ -50,8 +51,8 @@ function ModelStyled({ data: dataGame }) {
       <p className="description">{description}</p>
 
       <ScrennShotModel id={id} />
-
       <TagsDetails tags={tags} />
+      <Related name={name} />
     </ModelStyledC>
   );
 }

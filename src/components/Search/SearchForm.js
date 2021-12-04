@@ -1,17 +1,21 @@
 import React from "react";
 import useSearch from "../../hooks/useSearch";
+import { searchAction } from "../../redux/slices/search";
 
 import { StyledSearch } from "./StyledSearch";
 import { AiOutlineLoading3Quarters, AiOutlineClose } from "react-icons/ai";
 import SearchComponent from "./SerachComponent/SearchComponent";
 import SearchMenu from "./SreachMenu/SearchMenu";
+import { useDispatch } from "react-redux";
 function Search() {
+  const dispatch = useDispatch();
   const { setInput, data, isLoading, isError, input, setNumber } = useSearch();
 
   function handelSubmit(e) {
     e.preventDefault();
     if (input.length >= 2 && data.results.length) {
-      setNumber(20);
+      setNumber(21);
+      dispatch(searchAction.setSearch(input));
     } else {
       console.log("handel empty value !!!!!!!!");
     }
@@ -34,6 +38,7 @@ function Search() {
               className="loading close"
               onClick={() => {
                 setInput("");
+                dispatch(searchAction.setSearch(""));
               }}
             />
           )}
@@ -45,7 +50,7 @@ function Search() {
       </StyledSearch>
 
       {input.length >= 2 && data?.results.length > 4 && !isLoading && (
-        <SearchComponent data={data.results} />
+        <SearchComponent data={data.results} search={input} />
       )}
     </>
   );
