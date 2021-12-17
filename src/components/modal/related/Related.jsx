@@ -7,13 +7,12 @@ import { Card, RelatedStyled } from "./styled/styled";
 function Related({ name }) {
   const dispatch = useDispatch();
 
-  const { input, number, setInput, data, isLoading, isError, setNumber } =
-    useSearch();
+  const { setInput, data, isLoading, isError, setNumber } = useSearch();
   useEffect(() => {
     setInput(name);
     setNumber(10);
-  }, [name, setInput, number]);
-  console.log(number);
+  }, [name, setInput, setNumber]);
+
   return (
     <>
       <h1 style={{ padding: "0rem 3rem" }}>Related of: {name}</h1>
@@ -42,9 +41,13 @@ function Related({ name }) {
               key={game.id}
               url={game.background_image}
               onClick={() => {
-                dispatch(searchAction.setSearch(game.name));
-                dispatch(detailsAction.setDetailsId(""));
+                dispatch(searchAction.setSearch(""));
+
                 dispatch(detailsAction.setGameDetails({}));
+                dispatch(detailsAction.setDetailsId(""));
+                setTimeout(() => {
+                  dispatch(detailsAction.setDetailsId(game.id));
+                }, 2000);
               }}
             />
           ))

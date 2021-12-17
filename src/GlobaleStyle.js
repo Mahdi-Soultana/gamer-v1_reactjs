@@ -70,5 +70,33 @@ const GlobleStyles = createGlobalStyle`
       font-size:1rem;
 
   }
+  .loading {
+    position: absolute;
+    top: 25%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.7rem;
+    /* background: #333; */
+
+    animation: rotate 0.9s linear infinite forwards;
+    &.close {
+      animation-play-state: paused;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: red;
+        fill: white;
+      }
+    }
+  }
+  @keyframes rotate {
+    from {
+      transform: rotateZ(0);
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
 `;
 export default GlobleStyles;

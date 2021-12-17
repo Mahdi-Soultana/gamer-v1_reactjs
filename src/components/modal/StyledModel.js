@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 export const ModelStyledC = styled(motion.aside)`
   position: fixed;
   background-color: #ffffff;
+  transform-origin: 50% 50%;
   width: 97%;
-  max-width: 1100px;
+  max-width: 1000px;
   min-height: 40vh;
   height: 99%;
   margin: 0 auto;
   top: 0.3rem;
-  left: 13%;
+  left: 12%;
   transform: translateX(-50%);
   border-radius: 1em;
   box-shadow: 0 0 16px #333;
@@ -19,10 +20,14 @@ export const ModelStyledC = styled(motion.aside)`
     left: 0%;
   }
   ::-webkit-scrollbar {
+    border-raduis: 5em;
     width: 10px;
   }
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
+
+    border-bottom-right-radius: 5em;
+    border-top-right-radius: 5em;
   }
   ::-webkit-scrollbar-thumb {
     background: #888;

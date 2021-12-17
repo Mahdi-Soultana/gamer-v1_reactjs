@@ -6,11 +6,13 @@ import Model from "./Model";
 
 function Details() {
   const id = useSelector((state) => state.details.id);
+  const detailsIsOpen = useSelector((state) => state.ui.detailsIsOpen);
   const { data } = useGameDetails(id);
 
   return (
     <AnimatePresence>
-      {(data && id && <Model data={data} />) || ""}
+      {(data && id && <Model data={data} detailsIsOpen={detailsIsOpen} />) ||
+        ""}
     </AnimatePresence>
   );
 }

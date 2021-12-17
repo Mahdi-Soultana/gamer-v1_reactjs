@@ -12,10 +12,10 @@ function NewGames() {
   if (isLoading) {
     content = <h1>loading...</h1>;
   }
-  if (data) {
+  if (data && !isLoading && !isError) {
     content = <PopularGameList data={data.results} name="NewGames" />;
   }
-  return content;
+  return content || <h1>Op's Error Try Again !</h1>;
 }
 
 export default NewGames;

@@ -24,6 +24,7 @@ function useSearch() {
     },
     {
       enabled: !!inputSearch,
+      cacheTime: 0,
     },
   );
   console.log(data);

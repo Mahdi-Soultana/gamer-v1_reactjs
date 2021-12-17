@@ -7,22 +7,26 @@ import PopularGames from "../components/home/popular/PopularGames";
 import Details from "../components/modal/Details";
 
 import Nav from "../components/nav/Nav";
-
+import styled from "styled-components";
+export const MainContainer = styled.main`
+  text-align: center;
+`;
 function Home() {
   const term = useSelector((state) => state.search.term);
+  const submitState = useSelector((state) => state.ui.submitState);
   return (
     <>
       <AnimateSharedLayout>
         <Nav />
         <Details />
 
-        {!term && (
-          <>
+        {!submitState && (
+          <MainContainer>
             {" "}
             <PopularGames />
             <FeaturedGames />
             <NewGames />
-          </>
+          </MainContainer>
         )}
       </AnimateSharedLayout>
     </>

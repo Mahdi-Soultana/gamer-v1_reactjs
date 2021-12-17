@@ -4,10 +4,20 @@ const ui = createSlice({
   name: "ui",
   initialState: {
     detailsIsOpen: false,
+    submitState: false,
   },
   reducers: {
-    toggleInfo(state) {
-      state.detailsIsOpen = !state.detailsIsOpen;
+    toggleInfoOpen(state) {
+      state.detailsIsOpen = true;
+    },
+    toggleInfoClose(state) {
+      state.detailsIsOpen = false;
+    },
+    submitStateOpen(state) {
+      state.submitState = true;
+    },
+    submitStateClose(state) {
+      state.submitState = false;
     },
   },
 });

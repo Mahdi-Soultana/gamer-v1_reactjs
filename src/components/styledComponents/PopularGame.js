@@ -3,6 +3,7 @@ import { CardGame } from "./CardStyled";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { detailsAction } from "../../redux/slices/details";
+import { uiAction } from "../../redux/slices/ui";
 
 function PopularGame({ game }) {
   const dispatch = useDispatch();
@@ -13,7 +14,10 @@ function PopularGame({ game }) {
         layoutId={"hero_" + game.id.toString()}
         src={game.background_image}
         alt=""
-        onClick={() => dispatch(detailsAction.setDetailsId(game.id))}
+        onClick={() => {
+          dispatch(uiAction.toggleInfoOpen());
+          dispatch(detailsAction.setDetailsId(game.id));
+        }}
       />
       <motion.h2 layoutId={"title_" + game.id.toString()}>
         {game.name || "hey"}

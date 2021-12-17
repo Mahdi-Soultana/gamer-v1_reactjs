@@ -13,7 +13,6 @@ function formatDate(date) {
 }
 
 const lastYear = new Date().getFullYear();
-const nextYear = new Date().getFullYear() + 2;
 
 export const PopularGamesUrl = `${BaseUrl}&dates=${formatDate(
   `${lastYear}-01-01`,
