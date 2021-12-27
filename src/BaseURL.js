@@ -1,4 +1,4 @@
-let token = process.env.REACT_APP_TOKEN;
+let token = "104da59e492c4b12b219b40df1c319c4";
 
 let BaseUrl = "https://api.rawg.io/api/games?key=" + token;
 
