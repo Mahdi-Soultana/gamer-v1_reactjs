@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobleStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Neucha&display=swap');
+
   *,*::after,*::before{
       box-sizing: border-box;
       margin: 0;

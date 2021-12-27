@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { motion } from "framer-motion";
 import { detailsAction } from "../../redux/slices/details";
