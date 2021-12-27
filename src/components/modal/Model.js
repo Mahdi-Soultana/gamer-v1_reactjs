@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { motion } from "framer-motion";
 import { detailsAction } from "../../redux/slices/details";
@@ -11,28 +11,27 @@ const Backdrop = styled(motion.div)`
   position: fixed;
   background-color: #2727273b;
   width: 100%;
-  z-index: 3;
+  z-index: 9;
   min-height: 100vh;
   cursor: pointer;
   top: 0rem;
   left: 0%;
 `;
-function Model({ data, detailsIsOpen }) {
+function Model({ data }) {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.details.id);
+
   return (
     <>
       <ModelStyled data={data} />
-      {detailsIsOpen && (
-        <Backdrop
-          onClick={() => {
-            dispatch(detailsAction.setDetailsId(""));
-            dispatch(uiAction.toggleInfoClose());
-            dispatch(detailsAction.setGameDetails({}));
-            dispatch(searchAction.setSearch(""));
-          }}
-        />
-      )}
+
+      <Backdrop
+        onClick={() => {
+          dispatch(detailsAction.setDetailsId(""));
+          dispatch(uiAction.toggleInfoClose());
+          dispatch(detailsAction.setGameDetails({}));
+          dispatch(searchAction.setSearch(""));
+        }}
+      />
     </>
   );
 }

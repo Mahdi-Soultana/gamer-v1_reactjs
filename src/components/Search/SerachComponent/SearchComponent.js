@@ -2,7 +2,7 @@ import React from "react";
 import PopularGameList from "../../styledComponents/PopularGameList";
 import InfiniteScroll from "react-infinite-scroller";
 import { useInfiniteQuery } from "react-query";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 import { GamesSearchUrl } from "../../../BaseURL";
 const fetchData = async (url) => {
   let data = await fetch(url).then((res) => {

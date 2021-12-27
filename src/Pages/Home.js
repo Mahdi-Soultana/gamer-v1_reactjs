@@ -12,7 +12,6 @@ export const MainContainer = styled.main`
   text-align: center;
 `;
 function Home() {
-  const term = useSelector((state) => state.search.term);
   const submitState = useSelector((state) => state.ui.submitState);
   return (
     <>

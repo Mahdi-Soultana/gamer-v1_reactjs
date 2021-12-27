@@ -4,6 +4,7 @@ import { detailsAction } from "../../../redux/slices/details";
 import PlatformDetails from "../../modal/PlatformDetails/PlatformDetails";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { uiAction } from "../../../redux/slices/ui";
 export const SearchMenuStyled = styled.ul`
   position: absolute;
   left: -1rem;
@@ -62,7 +63,6 @@ export const SearchMenuStyled = styled.ul`
     text-transform: capitalize;
   }
 `;
-
 function SearchMenu({ data }) {
   const dispatch = useDispatch();
 
@@ -77,7 +77,10 @@ function SearchMenu({ data }) {
             whileTap={{ scale: 2, opacity: 0 }}
             key={id}
             title={name}
-            onClick={() => dispatch(detailsAction.setDetailsId(id))}
+            onClick={() => {
+              dispatch(detailsAction.setDetailsId(id));
+              dispatch(uiAction.toggleInfoOpen());
+            }}
           >
             <img src={background_image} alt={name} />
             <div>

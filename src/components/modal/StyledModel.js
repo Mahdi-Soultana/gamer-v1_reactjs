@@ -15,7 +15,7 @@ export const ModelStyledC = styled(motion.aside)`
   border-radius: 1em;
   box-shadow: 0 0 16px #333;
   overflow-y: auto;
-  z-index: 4;
+  z-index: 10;
   @media (max-width: 764px) {
     left: 0%;
   }
