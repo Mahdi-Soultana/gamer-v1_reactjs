@@ -4,19 +4,30 @@ export const ModelStyledC = styled(motion.aside)`
   position: fixed;
   background-color: #ffffff;
   transform-origin: 50% 50%;
-  width: 97%;
+  width: 90%;
+
   max-width: 1000px;
   min-height: 40vh;
   height: 99%;
   margin: 0 auto;
+  left: 16vw;
   top: 0.3rem;
-  left: 12%;
+  @media (max-width: 1200px) {
+    max-width: 800px;
+  }
+  @media (max-width: 860px) {
+    max-width: 600px;
+  }
+
   transform: translateX(-50%);
   border-radius: 1em;
   box-shadow: 0 0 16px #333;
   overflow-y: auto;
   z-index: 10;
   @media (max-width: 764px) {
+    left: 7%;
+  }
+  @media (max-width: 664px) {
     left: 0%;
   }
   ::-webkit-scrollbar {
@@ -87,7 +98,9 @@ export const ModelStyledC = styled(motion.aside)`
   .hero {
     width: 100%;
     height: 600px;
-
+    @media (max-width: 700px) {
+      height: 270px;
+    }
     border-bottom: #b3b3b3 solid 1px;
   }
   .description {

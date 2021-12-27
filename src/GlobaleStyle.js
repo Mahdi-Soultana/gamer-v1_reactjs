@@ -108,5 +108,13 @@ const GlobleStyles = createGlobalStyle`
     z-index:8;
     position:fixed;
   }
+  @media(max-width:700px){
+    html{
+      font-size:50%;
+    }
+  }
+  main{
+    padding:2rem;
+  }
 `;
 export default GlobleStyles;

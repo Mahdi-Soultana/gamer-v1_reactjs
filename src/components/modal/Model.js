@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { motion } from "framer-motion";
 import { detailsAction } from "../../redux/slices/details";
@@ -19,7 +19,7 @@ const Backdrop = styled(motion.div)`
 `;
 function Model({ data }) {
   const dispatch = useDispatch();
-
+  const id = useSelector((state) => state.details.id);
   return (
     <>
       <ModelStyled data={data} />

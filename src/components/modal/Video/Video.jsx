@@ -5,6 +5,9 @@ import { useQuery } from "react-query";
 export const VideoStyels = styled.div`
   height: 80vh;
   width: 100%;
+  @media (max-width: 700px) {
+    height: 40vh;
+  }
   padding: 1rem;
   border-radius: 0.6em;
   postion: relative;
