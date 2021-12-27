@@ -27,7 +27,7 @@ function useSearch() {
       cacheTime: 0,
     },
   );
-  console.log(data);
+
   useEffect(() => {
     if (term) {
       setInput(term);

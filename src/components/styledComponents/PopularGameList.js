@@ -3,7 +3,6 @@ import React from "react";
 import { ListStyled } from "./CardStyled";
 import PopularGame from "./PopularGame";
 function PopularGameList({ data, name, pages: pagesData }) {
-  console.log(pagesData?.pages);
   if (pagesData) {
     return (
       <section className="container">

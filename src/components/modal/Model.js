@@ -19,7 +19,7 @@ const Backdrop = styled(motion.div)`
 `;
 function Model({ data }) {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.details.id);
+
   return (
     <>
       <ModelStyled data={data} />
