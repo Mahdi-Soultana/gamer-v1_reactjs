@@ -5,6 +5,7 @@ import { searchAction } from "../../../redux/slices/search";
 import { detailsAction } from "../../../redux/slices/details";
 import { useDispatch } from "react-redux";
 import { uiAction } from "../../../redux/slices/ui";
+import { motion } from "framer-motion";
 export const Tags = styled.section`
   padding: 1rem;
   h2 {
@@ -52,7 +53,19 @@ function TagsDetails({ tags }) {
       </h2>
       <ul>
         {tags.map((tag) => (
-          <li
+          <motion.li
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+            whileTap={{
+              y: 4,
+              scale: 0.7,
+              transition: {
+                duration: 0.2,
+                type: "spring",
+              },
+            }}
             key={tag.id}
             title={tag.name}
             onClick={() => {
@@ -63,7 +76,7 @@ function TagsDetails({ tags }) {
             }}
           >
             {tag.name}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </Tags>

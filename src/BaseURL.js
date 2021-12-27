@@ -27,5 +27,6 @@ export const GamesDetailsUrl = (id) => `${BaseUrl}/${id}?key=${token}`;
 
 export const GamesScreenShotsUrl = (id) =>
   `${BaseUrl}/${id}/screenshots?key=${token}`;
+
 export const GamesSearchUrl = (search) =>
   `${BaseUrl}?key=${token}&search=${search}`;

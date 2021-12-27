@@ -1,27 +1,45 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
 import { useScreenShotDetails } from "../../../hooks/useQueryGame";
 function ScrennShotModel({ id }) {
   const { data } = useScreenShotDetails(id);
-  console.log(data, "screen");
-  console.log(id, "screen");
-
+  const variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    exit: { opacity: 0 },
+  };
   return (
     <>
       <h2 className="title-screen">Screen Shots:</h2>
-      <ScrennShots className="screens">
+      <ScrennShots
+        className="screens"
+        variants={variants}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
         {data?.results.map((img) => (
-          <li key={img.id}>
+          <motion.li variants={variants} key={img.id}>
             <img src={img.image} alt={"imgs" + img.id} />
-          </li>
+          </motion.li>
         ))}
       </ScrennShots>
     </>
   );
 }
-export const ScrennShots = styled.ul`
+export const ScrennShots = styled(motion.ul)`
   &.screens ul {
+    overflow: hidden;
     width: 100%;
 
     li {
